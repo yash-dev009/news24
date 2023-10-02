@@ -1,0 +1,35 @@
+.container{
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  background-color: #65939e71;
+    width: 51%;
+    margin: auto;
+   
+ 
+}   
+.containersub{ 
+    padding: 25px;
+    margin: 51px;
+}   
+.checkbox{
+ margin:3%;
+}   
+.p{
+  display: inline-block;
+}   
+.logindiv{
+  display:flex;
+  justify-content: center;
+  color: white;
+  margin: auto;
+}   
+.login{
+  background-color: blue;
+  color: white;
+  margin: 20px;
+}
+.registeredbtn{
+ display: flex;
+ justify-content: center;
+
+}
