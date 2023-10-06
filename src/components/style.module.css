@@ -45,6 +45,18 @@ background-color: #5464f7;
 color: white;
 font-size: 15px;
 font-weight: 500;
+margin-right: 10px;
+}
+.loginsignupbtn{
+ 
+ 
+border:transparent;
+  border-radius: 4px;
+background-color: #5464f7;
+color: white;
+font-size: 15px;
+font-weight: 500;
+padding: 10px 10px ;
 }
 
 .footercontainer{

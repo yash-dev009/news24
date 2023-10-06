@@ -12,7 +12,8 @@
     margin: 51px;
 }   
 .checkbox{
- margin:3%;
+ margin:10%;
+
 }   
 .p{
   display: inline-block;
@@ -27,6 +28,13 @@
   background-color: blue;
   color: white;
   margin: 20px;
+  border: transparent;
+  padding: 12px 20px;
+  font-size: 15px;
+  border-radius:7px;
+}
+.login:hover{
+opacity: .6;
 }
 .registeredbtn{
  display: flex;

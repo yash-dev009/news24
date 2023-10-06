@@ -14,7 +14,7 @@ const useNewsStore = create((set) => ({
       detail: " ISOBEL VAN HAGENJUN 3, 2023, 19:55 As of Saturday, at least 280 people died, and about 900 people were injured in the tragedy, according to Indian officialsAs of Saturday, at least 280 people died, and about 900 people were injured in the tragedy, according to Indian officials" 
        
     
-   },],
+   }],
 
 
 

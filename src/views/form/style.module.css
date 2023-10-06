@@ -2,6 +2,9 @@
 .formcontainer{
     margin: 2rem;
     background-color: aliceblue;
+  
+
+    
     border-radius: 3px;
      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -40,7 +43,7 @@
 .forminputcontainer{
     display: flex;
     flex-direction: column;
- width: 81%;
+ width: 50%;
  margin: auto;
  padding: 2rem;
   

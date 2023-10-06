@@ -1,9 +1,10 @@
+import Signup from '@/components/utils/signup'
 import React from 'react'
 
-function Signup() {
+function Index() {
   return (
-    <div>Signup</div>
+    <div><Signup/></div>
   )
 }
 
-export default Signup
+export default Index

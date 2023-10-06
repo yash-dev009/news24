@@ -4,8 +4,10 @@ import { BsSave, BsShareFill } from "react-icons/bs";
 import Style from "./style.module.css";
 import { useRouter } from "next/router";
 
-function Card(props) {
+function Card(props , {id}) {
   const router = useRouter();
+
+
   const handlesave = () => {
 
 
@@ -17,7 +19,7 @@ function Card(props) {
         <div
           className={Style.cardcontainer}
           onClick={() => {
-            router.push(`/detail/${id}`);
+            router.push(`$/detail{id}`);
           }}
         >
          
@@ -25,7 +27,7 @@ function Card(props) {
               <AiOutlineHeart className={Style.cardheart} />
               <div className={Style.cardimgdiv2}>
               {props.img.map((k) => {
-                return <img className={Style.cardimg} src={k} />;
+                return <img key={k.id} className={Style.cardimg} src={k} />;
               })}
               </div>
             </span>

@@ -1,16 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from "./style.module.css"
 import SimpleInput from '../simpleInput'
 import { Button } from '@mui/material'
 import Header from '../header'
 import { useRouter } from 'next/router'
+import Footer from '../footer'
+import axios from 'axios'
 
 
 function Login() {
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); 
 
   const router = useRouter()
+
+useEffect(() => {
+
+  
+
+ 
+}, [])
+
+  const handleClick = ()=>{
+    axios.post("http://localhost:5000/api/user/login" , {
+      email: email ,
+      password: password
+    })
+    .then((response) => {
+      console.log(response);
+      setEmail(""),
+      setPassword("")
+      router("/")
+    })
+    .catch(err=>{
+      console.log(err,"catcherror")
+    })
+  }
   
   return (
     <div>
@@ -18,11 +43,11 @@ function Login() {
          <div className={styles.container }>
            <div className={styles.containersub }>
         <SimpleInput
-             title="Full Name"
-             value={name}
+             title="Email"
+             value={email}
               maxLength={65}
-              name="user_name"
-              onChange={e=>setName(e.target.value)}
+              name="User mail"
+              onChange={e=>setEmail(e.target.value)}
               inputStyle={{ width: "93%" }}
         />
         <SimpleInput
@@ -33,16 +58,22 @@ function Login() {
               inputStyle={{ width: "93%" }}
               onChange={e=>setPassword(e.target.value)}
              
-        />
-        </div>
+          />
+          </div>
 
          <span  className={styles.checkbox} ><input  type='checkbox'/> <p className={styles.p} >Terms and conditions</p></span>
       
-           <div className={styles.logindiv} ><Button  className={styles.login} > Login</Button></div> 
+           <div className={styles.logindiv} >
 
-           <div className={styles.registeredbtn } > <p onClick={()=> {router.push("/signup")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>Click here , if you are already registred</p></div>
+            <button  className={styles.login} onClick={handleClick} > Login</button></div> 
+
+           {/* <div className={styles.registeredbtn } >
+             <p onClick={()=> {router.push("/signup")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>
+              Click here , if you are already registred</p>
+             </div> */}
         
         </div>
+     
     </div>
   )
 }

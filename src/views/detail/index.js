@@ -3,8 +3,11 @@ import Style from "./style.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsSave, BsShareFill } from "react-icons/bs";
 import Header from "@/components/header";
+import useNewsStore from "@/zustand/store";
 
-function Detail() {
+function Detail({id}) {
+
+  const blog = useNewsStore((state)=>state.posts)
 
   return (
     <div>
@@ -14,6 +17,10 @@ function Detail() {
         <div className={Style.imgcontainer}>
           <AiOutlineHeart className={Style.cardheart} />
           <div className={Style.cardgallery}>
+
+            {blog.map(u=>{
+              return ( {u.id})
+            })}
         
               <img className={Style.cardimg} src={`/train.webp`} />
               <img className={Style.cardimg} src={`/train.webp`} />
@@ -40,7 +47,7 @@ function Detail() {
             derailed onto an adjacent track, struck by an oncoming train. Nearly
             300 people were killed and hundreds more were injured in the
             Balasore district on Friday in one of the deadliest train crashes in
-            India's recent history. Here are some of the first images of the
+            India recent history. Here are some of the first images of the
             horrific incident.
           </p>
 

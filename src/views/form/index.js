@@ -57,7 +57,7 @@ router.push("/")
 
             <div className={style.imagearray} >
               {image.map(v => {
-                return <img className={style.formimg} src={v} />
+                return <img key={v.id} className={style.formimg} src={v} />
               } )}
             </div>
           </div>

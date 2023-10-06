@@ -9,11 +9,13 @@ import styles from  './style.module.css'
 
 function Homepage() {
   const posts = useNewsStore((state) => state.posts);
-
+console.log(
+  posts ,"post"
+);
 
   return (
     <div >
-       <Header/>
+       <Header login post/>
        <div className={styles.card}>
        {posts.map((i)=>{
         return(
