@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 function Form() {
 /*   const [choose, setChoose] = useState(null); */
+
 const [title, setTitle] = useState()
 const [detail, setDetail] = useState()
  const [image, setImage] = useState([]);
@@ -15,6 +16,9 @@ const [detail, setDetail] = useState()
   const inputref = useRef();
 
   const addPost = useNewsStore((state) => state.addPost);
+  const posts = useNewsStore((state) => state.posts);
+  const last = posts[posts.length-1]
+
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -25,14 +29,16 @@ const [detail, setDetail] = useState()
   };
 
  const handleSubmit= ()=> {
-  addPost({image,title,detail})
-
+  addPost({id: last?.id+1 ,image,title,detail})
+ 
 router.push("/")
 
   setTitle("")
   setDetail("")
 
  }
+
+ 
   console.log(detail,`detail`);
   console.log(title,`title`);
 

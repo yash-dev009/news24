@@ -88,16 +88,18 @@ setPassword("")
           </div>
 
          <span  className={styles.checkbox} ><input  type='checkbox'/> <p className={styles.p} >Terms and conditions</p></span>
-      
            <div className={styles.logindiv} >
 
             <button  className={styles.login} onClick={handleClick} >Signup</button></div> 
 
            <div className={styles.registeredbtn } >
              <p onClick={()=> {router.push("/login")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>
-              Click here , if you are already registred</p>
-             </div>
+             <b> Click here </b> , if you are already registred</p>
+             <hr/>
         
+             </div>
+
+            
         </div>
      
     </div>

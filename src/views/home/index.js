@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from '@/components/card'
   import Footer from '@/components/footer'
 import Header from '@/components/header'
@@ -8,27 +8,33 @@ import styles from  './style.module.css'
 
 
 function Homepage() {
-  const posts = useNewsStore((state) => state.posts);
-console.log(
-  posts ,"post"
-);
+  
 
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res=>res.json()
+    .then(json =>json) )
+   
+      },[])
   return (
     <div >
        <Header login post/>
-       <div className={styles.card}>
-       {posts.map((i)=>{
+     
+       {/* {data.map((i)=>{
         return(
           <Card
           key={i.id}
+          id={i.id}
           img={i.image}
           detail={i.detail}
           title={i.title}
+          active={i.isfav}
           />
         )
        }
-        )}
-        </div>
+        )} */}
+        <Card/>
+        
      
 
        <Footer/>

@@ -67,10 +67,10 @@ useEffect(() => {
 
             <button  className={styles.login} onClick={handleClick} > Login</button></div> 
 
-           {/* <div className={styles.registeredbtn } >
+           <div className={styles.registeredbtn } >
              <p onClick={()=> {router.push("/signup")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>
-              Click here , if you are already registred</p>
-             </div> */}
+             <b> Click here </b>  , if you are not registred .</p>
+             </div>
         
         </div>
      

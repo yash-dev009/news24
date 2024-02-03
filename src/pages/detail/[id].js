@@ -2,12 +2,15 @@ import Detail from '@/views/detail'
 import { useRouter } from 'next/router'
 import React from 'react'
 
+
 function Index() {
+
 const router = useRouter()
-const id = router.query.id
+const Id = router.query.id
+
   return (
 
-    <div><Detail id ={id}/></div>
+    <div><Detail id ={Id}/></div>
   )
 }
 
