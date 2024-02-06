@@ -1,3 +1,4 @@
+import Header from '@/components/header';
 import useNewsStore from '@/zustand/store'
 import React from 'react'
 
@@ -9,9 +10,21 @@ console.log(favposts ,"favpost");
 console.log(result ,"result");
   return (
     <div>
-{/* {result?.map((a)=>{
+      <Header/>
+{favposts?.map((a)=>{
+  const {id , title , detail,image} = a
+  return(
+    <div key={id}>
+      <p>{title}</p>
+      <p>{detail}</p>
+      {image.map((a)=>{ 
+        return <img key={id} src={a}/>})}
+    
+      
+    </div>
+  )
 
-})} */}
+})}
 <h2 style={{color:"purple"}}>i am here</h2>
 
 

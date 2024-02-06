@@ -1,12 +1,4 @@
-// import React from 'react'
 
-// function Singup() {
-//   return (
-//     <div> Singup</div>
-//   )
-// }
-
-// export default Singup
 
 import React, { useState,useEffect } from 'react'
 import styles from "./style.module.css"
@@ -25,12 +17,40 @@ function Signup() {
 
   const router = useRouter()
 
-useEffect(() => {
-
- 
-
- 
-}, [])
+  const registerHandler= async()=>{
+    try {
+      if(!name || !password || !email){
+        toast.error("please fill the details" )
+        return
+      } 
+    
+      const {data,error}= await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options:{
+               data:{
+                 full_name:name
+               }
+             }
+      })
+    // console.log({response});
+    if(error){
+      throw error
+    }
+    
+    setEmail(""),
+    setName(""),
+    setPassword("")
+    
+    router.push("/")
+    toast.success("Form Submit")
+    } 
+    
+    catch (error) {
+      toast.error(error.message)
+    }
+    
+      }
 
   const handleClick = (e)=>{
 e.preventDefault()
@@ -90,7 +110,7 @@ setPassword("")
          <span  className={styles.checkbox} ><input  type='checkbox'/> <p className={styles.p} >Terms and conditions</p></span>
            <div className={styles.logindiv} >
 
-            <button  className={styles.login} onClick={handleClick} >Signup</button></div> 
+            <button  className={styles.login} onClick={registerHandler} >Signup</button></div> 
 
            <div className={styles.registeredbtn } >
              <p onClick={()=> {router.push("/login")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>

@@ -14,12 +14,30 @@ function Login() {
 
   const router = useRouter()
 
-useEffect(() => {
-
-  
-
- 
-}, [])
+  const loginhandler = async()=>{
+    try {
+     if(!email || !password){
+       toast.warning("please fill the credentials")
+       return
+     }
+     const {error}= await supabase.auth.signInWithPassword({
+       email:email,
+       password:password
+     })
+     if(error){
+       throw error
+     }
+    setEmail(""),
+    setEmail("") 
+    router.push("/")
+    } 
+    catch (error) {
+     toast.error(error.message)
+     
+    }
+   
+     }
+   
 
   const handleClick = ()=>{
     axios.post("http://localhost:5000/api/user/login" , {
@@ -65,7 +83,7 @@ useEffect(() => {
       
            <div className={styles.logindiv} >
 
-            <button  className={styles.login} onClick={handleClick} > Login</button></div> 
+            <button  className={styles.login} onClick={loginhandler} > Login</button></div> 
 
            <div className={styles.registeredbtn } >
              <p onClick={()=> {router.push("/signup")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>

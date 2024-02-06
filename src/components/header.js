@@ -4,20 +4,22 @@ import {GiHamburgerMenu} from "react-icons/gi"
 import { useRouter } from "next/router"
 import PersistentDrawerLeft from "./drawer"
 import { BsHeart } from "react-icons/bs"
+import Drawer from "./drawer"
 
 
 
 const Header = ({login , post}) => {
 
 const [ logIn , setLogIn]= useState(false)
+const [click, setClick] = useState(false)
 
   const router = useRouter()
   return (
     <div>
-
+<Drawer show={click}  setShow={setClick}/>
 <div className={Style.container}>
 <div  className={Style.btncontainer}>
-<GiHamburgerMenu onClick={()=><PersistentDrawerLeft/>} className={Style.hamburger}/>
+<GiHamburgerMenu onClick={()=>setClick(true)} className={Style.hamburger}/>
 <div className={Style.headerlogo_heading} onClick={()=>{router.push("/")}}> 
 <img className={Style.logo} src={`/newspaper.png`}/>
 <h3 className={Style.heading}>24*7 news</h3> 

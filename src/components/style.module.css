@@ -99,7 +99,7 @@ padding: 10px;
 }
 
 .cardcontainer{
-
+ width: 100%;
   border-radius: 10px;
   width:35rem;
   background-color: #f3f3ed;

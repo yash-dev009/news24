@@ -7,7 +7,8 @@ import useNewsStore from "@/zustand/store";
 
 function Card() {
   const  addFavPost  = useNewsStore((state)=>state.addFavPost);
-
+  const favposts = useNewsStore((state) => state.favpost);
+  console.log(favposts ,"favpost");
   
   // const { id, title ,detail ,img} = props
 
@@ -28,7 +29,11 @@ function Card() {
 
 const handleheart =()=>{
   setIsLiked(!isLiked)
-  addFavPost({news})
+  // if(!isLiked){
+  //   addFavPost(news)
+  //   return
+  // }
+  addFavPost(news)
 }
 console.log(addFavPost,"addFavPost");
  
@@ -40,7 +45,7 @@ console.log(addFavPost,"addFavPost");
             <BsHeart
               className={Style.cardheart}
               style={{ color: isLiked ? "red" : "white" }}
-              onClick={() => handleheart()}
+              onClick={handleheart}
             />
             <div
               className={Style.cardimgdiv2}
