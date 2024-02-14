@@ -1,0 +1,40 @@
+
+.footercontainer{
+    background-color: #222225;
+    color: white;
+    
+    }
+    .logo{
+        width: 3.2rem;
+        height: 3.2rem;
+      
+      }
+    .footersubcontainer{
+    padding: 10px;
+    background-color: #1F2025;
+    width: 90%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    color: white;
+    }
+    .footerlogo_heading{
+      display: flex;
+      
+    }
+    .footerheading{
+     margin: 20px  15px 42px 12px;
+    }
+    .footericons{
+      margin: 10px;
+      width: 18rem;
+      justify-content: space-between;
+      border-bottom: 2px solid white;
+    }
+    .icon{
+      margin-left: 10px;
+    }
+    .footerpara{
+     text-align: center;
+    padding: 10px;
+    }

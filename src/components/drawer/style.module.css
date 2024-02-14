@@ -1,0 +1,14 @@
+.drawerlogo{
+    width: 3rem;
+    height: 3rem;
+  }
+  .drawercolor{
+    background-color: #1F2025;
+  }
+  .drawertextcolor{
+    color: white;
+    margin: 0px 20px;
+  }
+  .drawerlist{
+    list-style: none;
+  }

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styles from "./style.module.css"
 import SimpleInput from '../simpleInput'
 import { Button } from '@mui/material'
-import Header from '../header'
+import Header from '../header/header'
 import { useRouter } from 'next/router'
-import Footer from '../footer'
+import Footer from '../footer/footer'
 import axios from 'axios'
 
 

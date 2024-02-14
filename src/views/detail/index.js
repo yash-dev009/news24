@@ -2,8 +2,13 @@ import React from "react";
 import Style from "./style.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsSave, BsShareFill } from "react-icons/bs";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import useNewsStore from "@/zustand/store";
+import {   
+  FacebookShareButton,
+  FacebookIcon,
+  WhatsappShareButton,
+  WhatsappIcon, } from "react-share";
 
 function Detail({ id }) {
   const blog = useNewsStore((state) => state.posts);
@@ -36,9 +41,20 @@ function Detail({ id }) {
             </p>
 
             <div className={Style.cardsavecontainer}>
+            <FacebookShareButton url="https://chirayu-portfolio.vercel.app"  >
+            <FacebookIcon size={20}/>
+             </FacebookShareButton>
+            <WhatsappShareButton url="https://chirayu-portfolio.vercel.app"  >
+            <WhatsappIcon size={20}/>
+             </WhatsappShareButton>
+          
+             
+             
+                {/* <EmailShareButton size={20}/> */}
               <p className={Style.cardreadmorebtn}>Read more...</p>
               <div>
                 <BsShareFill className={Style.cardshareicon} />
+               
                 <BsSave className={Style.cardsaveicon} />
               </div>
             </div>

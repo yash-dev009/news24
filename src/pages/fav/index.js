@@ -1,16 +1,13 @@
-import Fav from '@/views/fav'
-import { useRouter } from 'next/router'
+import Card from '@/components/card/card'
 import React from 'react'
 
 const Index = () => {
 
-// const router = useRouter()
-//  const Id =router.query.id
     
   return (
     <div>
-      {/* <Fav id = {Id}/> */}
-    <Fav/>
+     
+    <Card fav />
     </div>
   )
 }

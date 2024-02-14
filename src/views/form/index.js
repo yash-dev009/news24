@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import style from "./style.module.css";
 /* import SimpleInput from "@/components/simpleInput"; */
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import useNewsStore from "@/zustand/store";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 function Form() {
 /*   const [choose, setChoose] = useState(null); */
@@ -29,6 +30,11 @@ const [detail, setDetail] = useState()
   };
 
  const handleSubmit= ()=> {
+if(!title || !detail|| !image){
+toast.error("Please fill the details first")
+return
+}
+
   addPost({id: last?.id+1 ,image,title,detail})
  
 router.push("/")
@@ -44,8 +50,8 @@ router.push("/")
 
 
   return (
-    <div>
-      <div className={style.container}>
+    <>
+      <div>
         <Header />
 
         <div className={style.formcontainer}>
@@ -106,7 +112,7 @@ router.push("/")
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
