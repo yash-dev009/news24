@@ -42,7 +42,9 @@ opacity: .6;
 
 }
 .google{
-display: flex;
+  display: flex;
+  font-size: 15px;
   justify-content: center;
   text-align: center;
+  font-weight: bolder;
 }

@@ -6,6 +6,7 @@ import Header from '../header/header'
 import { useRouter } from 'next/router'
 import Footer from '../footer/footer'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 
 function Login() {
@@ -14,47 +15,63 @@ function Login() {
 
   const router = useRouter()
 
-  const loginhandler = async()=>{
-    try {
-     if(!email || !password){
-       toast.warning("please fill the credentials")
-       return
-     }
-     const {error}= await supabase.auth.signInWithPassword({
-       email:email,
-       password:password
-     })
-     if(error){
-       throw error
-     }
-    setEmail(""),
-    setEmail("") 
-    router.push("/")
-    } 
-    catch (error) {
-     toast.error(error.message)
+  // const loginhandler = async()=>{
+  //   try {
+  //    if(!email || !password){
+  //      toast.warning("please fill the credentials")
+  //      return
+  //    }
+  //    const {error}= await supabase.auth.signInWithPassword({
+  //      email:email,
+  //      password:password
+  //    })
+  //    if(error){
+  //      throw error
+  //    }
+  //   setEmail(""),
+  //   setEmail("") 
+  //   router.push("/")
+  //   } 
+  //   catch (error) {
+  //    toast.error(error.message)
      
-    }
+  //   }
    
-     }
+  //    }
    
 
-  const handleClick = ()=>{
-    axios.post("http://localhost:5000/api/user/login" , {
-      email: email ,
-      password: password
-    })
-    .then((response) => {
-      console.log(response);
-      setEmail(""),
-      setPassword("")
-      router("/")
-    })
-    .catch(err=>{
-      console.log(err,"catcherror")
-    })
-  }
+  // const handleClick = ()=>{
+  //   axios.post("http://localhost:5000/api/user/login" , {
+  //     email: email ,
+  //     password: password
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //     setEmail(""),
+  //     setPassword("")
+  //     router("/")
+  //   })
+  //   .catch(err=>{
+  //     console.log(err,"catcherror")
+  //   })
+  // }
   
+  const loginhandler = ()=>{
+    if (!email|| !password) {
+      toast.error("Please fill the crediantials")
+      return
+      
+    }
+    const verified = JSON.parse(localStorage.getItem("user"))
+   console.log(verified,"verfir");
+    if (email  == verified.email && password == verified.password) {
+      router.push("/")
+      return
+    }
+    else{
+      toast.error("user is not matched")
+    }
+  }
   return (
     <div>
     <Header/>

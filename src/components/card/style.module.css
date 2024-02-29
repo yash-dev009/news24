@@ -3,8 +3,14 @@
     width:32rem;
     background-color: #f3f3ed;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 40px;
+    margin-bottom: 40px;
   
+  }
+  .heading{
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
   }
   
   .cardheading{
@@ -45,7 +51,7 @@
     max-height: fit-content;
     margin-top: 8px;
     vertical-align: middle;
-    height:auto;
+    height:100%;
 
 
     /* opacity: 1;
@@ -88,9 +94,28 @@
     -ms-transform: translate(-50%, -50%)
   }
   .card{
+    /* margin-top: 150px; */
     display: flex;
+    justify-content: center;
+    gap: 6rem;
   flex-wrap: wrap;
     width: 95%;
     margin: auto;
-    gap: 1rem;
+    /* gap: 1rem; */
+  }
+
+  .overlay{
+    position: absolute;
+    /* top: 45%; */
+    /* left: 100px; */
+    opacity: 0.5;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* padding: 30px; */
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px
   }

@@ -2,6 +2,8 @@ import { Button } from "react-bootstrap";
 import Style from "./style.module.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useRouter } from "next/router";
+import { BsSave ,BsHeart } from "react-icons/bs";
+import { IoMdHome } from "react-icons/io";
 
 function Drawer({ show, setShow }) {
   // const [show, setShow] = useState(false);
@@ -10,7 +12,7 @@ const router = useRouter()
 
   return (
     <>
-      <Offcanvas show={show} onHide={handleClose} className={Style.drawercolor}>
+      <Offcanvas  show={show} onHide={handleClose} className={Style.drawer}>
         <Offcanvas.Header closeButton>
           <img className={Style.drawerlogo} src={"newspaper.png"} />
           <Offcanvas.Title className={Style.drawertextcolor}>
@@ -18,10 +20,19 @@ const router = useRouter()
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className={Style.drawertextcolor}>
-          <ul>
-            <li className={Style.drawerlist}>Home </li> <hr />
-            <li className={Style.drawerlist}> Favourite</li> <hr />
-            <li className={Style.drawerlist}> Save</li> <hr />
+          <ul >
+            <li  className={Style.drawerlist} onClick={()=> {
+          router.push("/")
+          handleClose()
+          }}  > <IoMdHome size={20} />   Home </li> <hr />
+         <li className={Style.drawerlist} onClick={()=> {
+          router.push("/fav")
+          handleClose()
+          }}>   <BsHeart/>  Favourite</li> <hr />
+           <li className={Style.drawerlist} onClick={()=> {
+            router.push("/save")
+            handleClose()
+            }}> <BsSave />   Save</li> <hr />
           </ul>
           <Button onClick={()=> {router.push("/login")} }>Login</Button>
         </Offcanvas.Body>

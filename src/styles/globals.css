@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+p{
+  margin-bottom: 0 !important;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

@@ -1,14 +1,23 @@
+
+.drawer{
+  background-color: #1F2025;
+}
+
 .drawerlogo{
     width: 3rem;
     height: 3rem;
   }
-  .drawercolor{
-    background-color: #1F2025;
-  }
+  
   .drawertextcolor{
     color: white;
-    margin: 0px 20px;
+    margin: 0px 10px;
   }
   .drawerlist{
     list-style: none;
+  }
+  @media (max-width:500px) {
+  .drawer{
+    background-color: #1F2025;
+    width: 250px;
+  }
   }

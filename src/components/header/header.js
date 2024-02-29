@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Style from "./style.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useRouter } from "next/router";
-import PersistentDrawerLeft from "../drawer/drawer";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import { BsHeart } from "react-icons/bs";
 import Drawer from "../drawer/drawer";
 
@@ -30,8 +30,7 @@ const Header = ({ login, post =false}) => {
             <h3 className={Style.heading}>24*7 news</h3>
           </div>
           <div className={Style.Postbtndiv}>
-            <BsHeart
-              style={{ fontSize: "20px", margin: "0px 15px 0px 0px" }}
+            <BsHeart className={Style.heart}
               onClick={() => {
                 router.push("/fav");
               }}
@@ -64,6 +63,7 @@ const Header = ({ login, post =false}) => {
               {" "}
               Signup
             </button>
+            <IoPersonCircleOutline size={25} onClick={()=>router.push("/profile")}/>
           </div>
         </div>
       </div>

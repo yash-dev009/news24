@@ -24,6 +24,7 @@
     }
     .footerheading{
      margin: 20px  15px 42px 12px;
+     font-weight: 600;
     }
     .footericons{
       margin: 10px;
@@ -37,4 +38,22 @@
     .footerpara{
      text-align: center;
     padding: 10px;
+    }
+    @media (max-width:500px) {
+      .logo{
+        width: 2rem;
+        height: 2rem;
+      
+      }
+      .footerheading{
+        margin: 20px  15px 42px 12px;
+        font-size:   1rem;
+        font-weight: 600;
+       }
+       .footericons{
+        margin: 5px;
+        width: 10rem;
+        justify-content: space-between;
+        border-bottom: 2px solid white;
+      }
     }

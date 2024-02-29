@@ -10,7 +10,7 @@ function Homepage() {
 
   return (
     <div >
-       <Header login post/>
+       {/* <Header login post/> */}
      
         <Card />
         

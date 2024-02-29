@@ -11,6 +11,8 @@ import axios from 'axios'
 import { getAuth, sendSignInLinkToEmail, signInWithPopup } from 'firebase/auth'
 import { auth, provider } from '../../../firebase'
 import { FcGoogle } from "react-icons/fc"
+import useNewsStore from '@/zustand/store'
+import { GiMailbox } from 'react-icons/gi'
 
 
 function Signup() {
@@ -19,7 +21,8 @@ function Signup() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); 
-
+  const {addUser} = useNewsStore((state) => state);
+  const person = {name , password , email}
   const router = useRouter()
 
   // const registerHandler= async()=>{
@@ -98,18 +101,22 @@ setPassword("")
  async function signWithGoogle() {
     try {
       const result = await signInWithPopup(auth,provider)
-      console.log(result,"resukt");
+      console.log(result.user,"resukt");
+    const {displayName,email,phoneNumber,photoURL} = result.user
+    // localStorage.setItem("user",JSON.stringify({name:displayName,email,phoneNumber,photoURL}))
+    addUser({name:displayName,email,phoneNumber,photoURL})
+    // console.log(displayName);
     } catch (error) {
       
     }
   }
-  //  const signinwithemail = async()=>{
-  //   try {
-  //      const result = await signinwithemail
-  //   } catch (error) {
-      
-  //   }
-  //  }
+ const signuphandler = ()=>{
+  alert(" here")
+  localStorage.setItem('user', JSON.stringify([person]))
+  addUser(person)
+  console.log( addUser , "user");
+ }
+ 
 
 
   function signinwithemail(params) {
@@ -141,7 +148,7 @@ setPassword("")
              title="Full Name"
              value={name}
               maxLength={65}
-              name="User mail"
+              name="Username"
               onChange={e=>setName(e.target.value)}
               inputStyle={{ width: "93%" }}
         />
@@ -169,7 +176,7 @@ setPassword("")
          <span  className={styles.checkbox} ><input  type='checkbox'/> <p className={styles.p} >Terms and conditions</p></span>
            <div className={styles.logindiv} >
 
-            <button  className={styles.login} >Signup</button></div> 
+            <button  className={styles.login} onClick={signuphandler} >Signup</button></div> 
 
            <div className={styles.registeredbtn } >
              <p onClick={()=> {router.push("/login")} } style={{cursor:"pointer" ,color:"blue" , margin: "20px   " }}>
@@ -177,11 +184,12 @@ setPassword("")
              <hr/>
         
              </div>
-
-             <p onClick={signWithGoogle} className={styles.google} >  <FcGoogle size={30}onClick={signWithGoogle}  />Sign in with google</p>
+         <div style={{border:"2px solid black",margin:"auto" , padding:"20px", width:"80%",display:"flex",flexDirection:"column",}}>
+             <div><p onClick={signWithGoogle} className={styles.google} >  <FcGoogle size={30}onClick={signWithGoogle}  />Sign in with google ,</p>  </div>
+             <hr/>
            
-             <p onClick={signinwithemail}>Sihn in with email</p>
-
+             <div><p onClick={signinwithemail} className={styles.google}> <GiMailbox size={20}/>Sign in with email</p> </div>
+             </div>
             
         </div>
      

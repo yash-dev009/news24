@@ -2,9 +2,6 @@ import Head from 'next/head'
 import Homepage from '@/views/home'
 import useNewsStore from '@/zustand/store';
 
-
-
-
 export default function Home() {
 
   const store = useNewsStore((state) => state);
@@ -18,6 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Homepage/>
     
         
